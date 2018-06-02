@@ -1,0 +1,59 @@
+$colors-list: #00ffd2, #00ff60, #ff26de;
+$default-color: nth($colors-list, 1);
+$colors-names: 'blue', 'green', 'pink';
+$main-responsive-widths: 1920, 1080, 1024, 768, 728, 480, 380;
+$main-responsive-height: 960, 840, 768, 600, 500;
+$font-weight-reg: 400;
+$font-weight-bold: 700;
+$font-weight-extra-bold: 900;
+$border-widths: (
+		1920: 22,
+		1080: 22,
+		1024: 18,
+		768: 18,
+		728: 12,
+		480: 12,
+		380: 12
+);
+
+$detail-wrap-heights: (
+		1920: 390,
+		1080: 390,
+		1024: 390,
+		768: 345,
+		728: 327,
+		480: 216,
+		380: 171
+);
+
+$detail-font-size: (
+		1920: 68,
+		1080: 60,
+		1024: 46,
+		768: 40,
+		728: 32,
+		480: 30,
+		380: 30
+);
+
+$font-size-header: (
+		1920: 1,
+		1080: 1,
+		1024: 1,
+		768: 0.9,
+		728: 0.85,
+		480: 0.75,
+		380: 0.68
+);
+
+$font-size-button: (
+		1920: 1,
+		1080: 1,
+		1024: 0.95,
+		768: 0.9,
+		728: 0.85,
+		480: 0.8,
+		380: 0.75
+);
+
+$animation-time: 0.7s

@@ -1,0 +1,113 @@
+@import "variables";
+
+@mixin responsive-border-width( $element ) {
+  @each $width, $border-width in $border-widths {
+	@media all and (max-width: ($width + px)) {
+	  #{$element} {
+		border-width: ($border-width + px);
+	  }
+	}
+  }
+}
+
+@mixin responsive-padding-header() {
+  @each $width, $border-width in $border-widths {
+	@media all and (max-width: ($width + px)) {
+	  $border-value: ($border-width + px);
+	  header {
+		padding: $border-value $border-value 0 $border-value;
+	  }
+	}
+  }
+}
+
+@mixin responsive-detail-wrap() {
+  @each $width, $wrap-height in $detail-wrap-heights {
+	@media all and (max-width: ($width + px)) {
+	  $height-value: ($wrap-height + px);
+	  .detail-container {
+		.video-wrap, .image-wrap {
+		  height: $height-value;
+		}
+	  }
+	}
+	$count: 0;
+	@each $height in $main-responsive-height {
+	  @media all and (max-height: ($height + px)) {
+		$count: $count + 1;
+		.detail-container {
+		  $height-value: $width * 9 / 16;
+		  .video-wrap, .image-wrap {
+			height: $height-value + px;
+		  }
+		}
+	  }
+	}
+  }
+}
+
+@mixin responsive-detail-text() {
+  @each $width, $font-size in $detail-font-size {
+	@media all and (max-width: ($width + px)) {
+	  .detail-container {
+		.text-container {
+		  font-size: em($font-size);
+		  padding-bottom: em(20, $font-size);
+		}
+	  }
+	}
+	$count: 0;
+	@each $height in $main-responsive-height {
+	  @media all and (max-width: ($width + px)) and (max-height: ($height + px)) {
+		.detail-container {
+		  .text-container {
+			$count: $count + 1;
+			$fontValue: $font-size * ( 1 - ( $count * 0.08 ) );
+			font-size: em($fontValue);
+			padding-bottom: em(20, $fontValue);
+		  }
+		}
+	  }
+	}
+  }
+}
+
+@mixin responsive-header() {
+  @each $width, $font-size in $font-size-header {
+	@media all and (max-width: ($width + px)) {
+	  header {
+		font-size: $font-size + em;
+	  }
+	}
+	$count: 0;
+	@each $height in $main-responsive-height {
+	  @media all and (max-width: ($width + px)) and (max-height: ($height + px)) {
+		header {
+		  $count: $count + 1;
+		  $fontValue: $font-size * ( 1 - ( $count * 0.05 ) );
+		  font-size: $fontValue + em;
+		}
+	  }
+	}
+  }
+}
+
+@mixin responsive-button() {
+  @each $width, $font-size in $font-size-button {
+	@media all and (max-width: ($width + px)) {
+	  .button-area, .button-container {
+		font-size: $font-size + em;
+	  }
+	}
+	$count: 0;
+	@each $height in $main-responsive-height {
+	  @media all and (max-width: ($width + px)) and (max-height: ($height + px)) {
+		.button-area, .button-container {
+		  $count: $count + 1;
+		  $fontValue: $font-size * ( 1 - ( $count * 0.05 ) );
+		  font-size: $fontValue + em;
+		}
+	  }
+	}
+  }
+}

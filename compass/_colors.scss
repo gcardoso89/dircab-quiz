@@ -1,0 +1,46 @@
+@import "variables";
+
+@mixin colours( $property, $includeDefaultColour:false, $pseudoSelector:false ) {
+  @if ($includeDefaultColour) {
+	background: $default-color;
+  }
+
+  @if ($pseudoSelector){
+	@each $current-color in $colors-list {
+	  $color-name: nth($colors-names, index($colors-list, $current-color));
+	  &.color-#{$color-name}:#{$pseudoSelector} {
+		#{$property}: $current-color;
+	  }
+	}
+  } @else {
+	@each $current-color in $colors-list {
+	  $color-name: nth($colors-names, index($colors-list, $current-color));
+	  &.color-#{$color-name} {
+		#{$property}: $current-color;
+	  }
+	}
+  }
+
+}
+
+@mixin box-shadow-colours( $pseudoSelector: false ){
+  @if ($pseudoSelector){
+	@each $current-color in $colors-list {
+	  $color-name: nth($colors-names, index($colors-list, $current-color));
+	  &.color-#{$color-name}:#{$pseudoSelector} {
+		box-shadow: 10px 0 0 $current-color, -10px 0 0 $current-color;
+	  }
+	}
+  } @else {
+	@each $current-color in $colors-list {
+	  $color-name: nth($colors-names, index($colors-list, $current-color));
+	  &.color-#{$color-name} {
+		box-shadow: 10px 0 0 $current-color, -10px 0 0 $current-color;
+	  }
+	}
+  }
+}
+
+@mixin background-colors( $includeDefaultColour ) {
+  @include colours(background, $includeDefaultColour);
+}
