@@ -1,11 +1,11 @@
-$colors-list: #00ffd2, #00ff60, #ff26de;
-$default-color: nth($colors-list, 1);
-$colors-names: 'blue', 'green', 'pink';
 $main-responsive-widths: 1920, 1080, 1024, 768, 728, 480, 380;
 $main-responsive-height: 960, 840, 768, 600, 500;
 $font-weight-reg: 400;
 $font-weight-bold: 700;
 $font-weight-extra-bold: 900;
+$red: #E10A2E;
+$blue: #083F85;
+
 $border-widths: (
 		1920: 22,
 		1080: 22,

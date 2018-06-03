@@ -18,17 +18,8 @@ class Quiz {
 	}
 
 	_onSectionChange( evt, newSectionIndex ) {
-		debugger;
-		for ( let i = 0; i < this._navElements.length; i++ ) {
-			let navElement = this._navElements[ i ];
-			let className = navElement.getAttribute( 'class' );
-			if ( className.indexOf( ' selected' ) !== -1 ) {
-				navElement.setAttribute( 'class', className.replace( ' selected', '' ) );
-			}
-			if ( i === newSectionIndex ) {
-				navElement.setAttribute( 'class', className + ' selected' );
-			}
-		}
+		if ( !this._navElements[newSectionIndex] ) return;
+		this._navElements[newSectionIndex].setAttribute( 'class', 'selected' );
 	}
 }
 

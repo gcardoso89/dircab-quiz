@@ -2,7 +2,7 @@ var path = require( 'path' );
 var webpack = require( "webpack" );
 
 module.exports = {
-	entry: [ './public/js/config.js', 'babel-polyfill', './public/js/main.js' ],
+	entry: [ 'babel-polyfill', './public/js/main.js' ],
 	output: {
 		path: path.join( __dirname, '/public/js/' ),
 		filename: 'app.js'
@@ -18,6 +18,6 @@ module.exports = {
 			}
 		]
 	},
-	plugins: [ new webpack.optimize.UglifyJsPlugin( { minimize: true } ) ]
-	//devtool: 'source-map'
+	plugins: [ new webpack.optimize.UglifyJsPlugin( { minimize: true } ) ],
+	devtool: 'source-map'
 };

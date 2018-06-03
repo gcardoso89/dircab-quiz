@@ -33,10 +33,9 @@ class Quiz {
 
 	onChangeAnswer( evt ) {
 		let element = evt.target;
-		let profile = atob( element.dataset.profile );
 		let question = element.name;
 		if ( element.checked ) {
-			this._results[ question ] = profile;
+			this._results[ element.value ] = this._results[ element.value ] ? this._results[ element.value ] + 1 : 1;
 		}
 		// The first index is the main one
 		globalEmmiter.invoke( EVENTS.GO_TO_SECTION, parseInt( question, 10 ) + 1 );
@@ -58,29 +57,17 @@ class Quiz {
 	}
 
 	checkFinalResult() {
-		let submitted = true;
-		let ranking = {};
-		let max = 0;
-		let winners = [];
-		for ( let question of Object.keys( this._results ) ) {
-			if ( !this._results[ question ] ) {
-				submitted = false;
-				break;
-			}
-			if ( !ranking[ this._results[ question ] ] ) {
-				ranking[ this._results[ question ] ] = 0;
-			}
-			ranking[ this._results[ question ] ]++;
-			if ( ranking[ this._results[ question ] ] > max ) {
-				winners.length = 0;
-				max = ranking[ this._results[ question ] ];
-				winners.push( this._results[ question ] );
-			} else if ( ranking[ this._results[ question ] ] === max ) {
-				winners.push( this._results[ question ] );
-			}
-		}
+		let positiveAnswers = this._results[ "1" ];
 
-		return winners[ 0 ];
+		if ( positiveAnswers <= 6 ){
+			return "bambi";
+		} else if ( positiveAnswers > 6 && positiveAnswers <= 12 ) {
+			return "charles-ingalls";
+		} else if ( positiveAnswers > 12 && positiveAnswers <= 18 ) {
+			return "mac-gyver";
+		} else if ( positiveAnswers > 18 ) {
+			return "maitre-yoda";
+		}
 	}
 
 	hideWinner() {

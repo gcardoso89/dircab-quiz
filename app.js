@@ -9,10 +9,6 @@ var express = require( 'express' ),
 	app = express(),
 	isDevEnv = app.get( 'env' ) === 'development';
 
-if ( isDevEnv ) {
-	require( './socialImageGenerator' );
-}
-
 // view engine setup
 app.engine( "hbs", exphbs( {
 	helpers: require( "./helpers.js" ).helpers, // same file that gets used on our client
