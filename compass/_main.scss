@@ -15,7 +15,8 @@
 }
 
 body {
-  font: 100% 'Open Sans', sans-serif;
+  font: 100% 'Lato', sans-serif;
+  font-style: italic;
   @include transition(background-color $animation-time ease-out);
   height: 100vh;
   &.final {
@@ -65,22 +66,41 @@ header {
 	right: 40px;
 	top: 30px;
 
+
 	a {
+	  &.sharing-facebook {
+		background: $blue;
+		border-color: $blue;
+		color: white;
+		&:hover {
+		  background: white;
+		  color: $blue;
+		}
+	  }
+
+	  &.sharing-twitter {
+		background: $red;
+		border-color: $red;
+		color: white;
+		&:hover {
+		  background: white;
+		  color: $red;
+		}
+	  }
 	  display: block;
 	  width: 30px;
 	  height: 30px;
+	  border:3px solid;
+	  border-radius: 30px;
 	  float: left;
 	  margin-left: 20px;
-	  color: inherit;
 	  svg {
 		fill: currentColor;
 		g {
 		  fill: currentColor;
 		}
 	  }
-	  &:hover {
 
-	  }
 	}
   }
 }
@@ -187,7 +207,7 @@ main {
 	  padding: 0;
 	  width: 80%;
 	  font-size: em(32);
-	  font-weight: 600;
+	  font-weight: 700;
 	  color: $blue;
 	  margin-bottom: 8vh;
 	}
@@ -257,7 +277,6 @@ main {
 	.entrance-left {
 	  font-size: em(40);
 	  line-height: 1.2;
-	  font-weight: 300;
 	  margin-bottom: 50px;
 	  color: $red;
 	}
@@ -330,118 +349,106 @@ button {
 .final-container {
   position: relative;
   z-index: 2;
+  max-width: 900px;
   width: 100%;
-  padding-left: 50%;
-  padding-right: 10%;
-  padding-top: 5vw;
-  &#final-client-parfait {
-	padding-top: 7vw;
-  }
-  padding-bottom: 2vw;
-  min-height: 100vh;
   display: none;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   margin: 0 auto;
-  background-size: auto 80%;
-  background-position: center bottom;
-  background-repeat: no-repeat;
+  height: 100vh;
+  padding: 0 20px;
   @include transition(transform $animation-time 0.5s ease-out);
   @include transform(translate3d(0, 100vh, 0));
 
-  .text {
-
-	strong {
-	  display: block;
-	  margin-bottom: 2px;
-	  font-size: em(20);
-	  font-weight: $font-weight-extra-bold;
-	  text-transform: uppercase;
-	}
-
-	h2 {
+  h2 {
+	width: 100%;
+	margin: 0;
+	margin-bottom: 100px;
+	font-size: em(16);
+	position: relative;
+	white-space: nowrap;
+	span {
 	  position: relative;
-	  font-size: em(60);
-	  line-height: 1.5;
-	  transform: rotate(-2deg);
-	  margin: 0 0 10px;
-	  color: white;
-
-	  &:before {
-		content: attr(data-title);
-		color: #000;
-		background-color: #000;
-		z-index: -1;
-		box-shadow: 10px 0 0 #000, -10px 0 0 #000;
-	  }
-
-	  .title-text {
-		position: absolute;
-		left: 0;
-		top: 0;
-		z-index: 2;
-		transform: rotate(2deg);
-	  }
-
-	}
-
-	p {
-	  font-size: em(14);
-	  line-height: 1.7;
-	}
-
-	b {
-	  font-weight: $font-weight-extra-bold;
-	  font-size: em(16);
+	  z-index: 1;
+	  background: #fff;
 	  display: block;
-	  margin: em(15, 16) 0 em(5, 16);
-	  text-transform: uppercase;
+	  font-size: em(40);
+	  line-height: 1;
+	  color: $red;
+	  font-weight: 400;
 	}
 
-	.buttons {
-	  margin-top: 20px;
-	  display: flex;
-	  button {
-		margin-right: 20px;
-	  }
+	&:before {
+	  content: ".";
+	  display: block;
+	  width: 200px;
+	  height: 200px;
+	  position: absolute;
+	  left: 50%;
+	  top: 50%;
+	  transform: translate3d(-50%,-50%,0);
+	  background: url(../images/question.svg);
+	  z-index: -2;
+	  font-size: 0;
+	  -webkit-animation: rotating 10s linear infinite;
+	  -moz-animation: rotating 10s linear infinite;
+	  -ms-animation: rotating 10s linear infinite;
+	  -o-animation: rotating 10s linear infinite;
+	  animation: rotating 10s linear infinite;
+	  -webkit-transform-origin: left top;
+	  -moz-transform-origin: left top;
+	  -ms-transform-origin: left top;
+	  -o-transform-origin: left top;
+	  transform-origin: left top;
 	}
+
+	&:after {
+	  content: ".";
+	  position: absolute;
+	  width: 100px;
+	  height: 100px;
+	  border-radius: 100px;
+	  background: white;
+	  left: 50%;
+	  top: 50%;
+	  transform: translate3d(-50%,-50%,0);
+	  display: block;
+	  font-size: 0;
+	  z-index: -1;
+	}
+  }
+
+  .content {
+	display: flex;
+	align-items: center;
+	position: relative;
+	font-size: em(16);
+	color: $blue;
+  }
+
+  .image, .description {
+	width: 50%;
+  }
+
+  .description {
+	padding-left: 20px;
+	font-weight: 700;
+	font-size: em(20);
   }
 
   .image {
-	position: absolute;
-	left: 50%;
-	@include transform (translateX(-100%));
-	bottom: 0;
-	z-index: 1;
-	padding-right: 40px;
-	overflow: hidden;
-	img {
-	  margin-bottom: -5vh;
-	  width: auto;
-	  height: 80vh;
-	}
-  }
+	text-align: right;
+	padding-right: 20px;
 
-  &#final-client-parfait {
-	.image {
-	  @include transform (translateX(-50%));
-	  padding-right: 0px;
-	  overflow: hidden;
-	  z-index: -1;
-	  img {
-		margin-bottom: -15vh;
-		height: 90vh;
-	  }
+	img {
+	  max-width: 100%;
 	}
   }
 }
 
 @media all and (max-width: 764px) {
   body {
-	&.final {
-	  header {
-
-	  }
-	}
 	header {
 	  background: rgba(255, 255, 255, 0.8);
 	}
@@ -455,43 +462,28 @@ button {
   }
 
   .final-container {
-	min-height: initial;
-	padding: 80px 40px 70px;
-	&#final-client-parfait {
-	  padding-top: 70px;
-	}
-	background-position: center bottom;
-	background-size: auto 60vh;
-	.text {
-	  h2 {
-		font-size: em(40);
+	h2 {
+	  @include transform(scale(0.7));
+	  margin-bottom: 70px;
+	  span {
+		font-size: em(40*0.9);
 	  }
 	}
 
-	.image {
-	  position: static;
-	  left: auto;
-	  @include transform (translateX(0));
-	  bottom: auto;
-	  z-index: 1;
-	  padding-left: 20px;
-	  padding-right: 0;
-	  img {
-		width: auto;
-		height: 40vh;
+	.content {
+	  flex-direction: column;
+	  .image, .description {
+		width: 80%;
+		text-align: center;
 	  }
-	}
-
-	&#final-client-parfait {
+	  .description {
+		padding-top: 10px;
+		padding-left: 0;
+	  }
 	  .image {
-		@include transform (translateX(0));
-		padding-right: 0px;
-		overflow: hidden;
-		img {
-		  margin-bottom: 0;
-		  width: auto;
-		  height: 40vh;
-		}
+		padding-bottom: 10px;
+		padding-right: 0;
+		text-align: center;
 	  }
 	}
   }
@@ -573,14 +565,22 @@ button {
   }
 
   .final-container {
-	.text {
-	  width: 100%;
-	  .buttons {
-		display: block;
-		.restart-button {
-		  margin-top: 20px;
-		}
+	padding: 0;
+	overflow: hidden;
+
+	h2 {
+	  span {
+		font-size: em(30);
 	  }
+	}
+
+	.image {
+	  img {
+		max-height: 200px;
+	  }
+	}
+	.description {
+	  font-size:em(16);
 	}
   }
 
