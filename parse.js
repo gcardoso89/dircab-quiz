@@ -1,12 +1,7 @@
 let xlsxj = require("xlsx-to-json");
 let fs = require('fs');
-let urlify = require('urlify').create({
-	spaces: "-",
-	nonPrintable: "-",
-	trim: true,
-	toLower: true
-});
-let btoa = require('btoa');
+let shuffle = require('shuffle-array');
+
 xlsxj({
 	input: "dircab.xlsx",
 	output: "dircab.json"
@@ -23,13 +18,20 @@ xlsxj({
 				questions.push(
 					{
 						order: parseInt(entry['Question\norder'], 10),
-						question: entry['Question']
+						question: entry['Question'].replace('“', '“<em>').replace('”', '</em>”').replace('«', '«<em>').replace('</em>»')
 					}
 				)
 			}
 		}
 		questions.sort(function (a, b) {
 			return a.order - b.order;
+		});
+
+		questions = shuffle(questions);
+
+		questions = questions.map( (question, index) => {
+			question.order = index+1;
+			return question;
 		});
 
 		let file = 'const QUESTIONS = ' + JSON.stringify(questions) + ';module.exports = QUESTIONS;';

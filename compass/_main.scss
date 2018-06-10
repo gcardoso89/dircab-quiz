@@ -210,13 +210,15 @@ main {
 	  font-weight: 700;
 	  color: $blue;
 	  margin-bottom: 8vh;
+	  em {
+		font-weight: 400;
+	  }
 	}
 
 	.answers {
 	  width: 80%;
 	  padding: 0;
 	  font-size: em(16);
-
 	  ol {
 		list-style-type: none;
 		padding: 0;
@@ -274,24 +276,25 @@ main {
 	  }
 	}
 
-	.entrance-left {
-	  font-size: em(40);
-	  line-height: 1.2;
-	  margin-bottom: 50px;
-	  color: $red;
-	}
-
-	.entrance-right {
-	  font-size: em(22);
-	  font-weight: $font-weight-reg;
-	  line-height: 1.7;
-	  color: $blue;
-	}
-
-	.entrance-left, .entrance-right {
+	.entrance {
 	  width: 80%;
-	  max-width: 560px;
+	  max-width: 740px;
 	  font-style: italic;
+	  h1 {
+		margin: 0 0 5px;
+		font-weight: 400;
+		font-size: em(50);
+		line-height: 1.2;
+		color: $red;
+	  }
+
+	  p {
+		font-size: em(24);
+		font-weight: $font-weight-reg;
+		line-height: 1.7;
+		margin:0 0 em(50, 24);
+		color: $blue;
+	  }
 	}
 
 	.entrance-button, .next-button {
@@ -319,6 +322,25 @@ main {
 }
 
 button {
+  position: relative;
+  &:hover {
+	&:after {
+	  display: block;
+	}
+  }
+  &:after {
+	display: none;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	@include transform(translate(-50%,-50%) scale(0.6));
+	z-index: -1;
+	width: 300px;
+	height: 300px;
+	background: url(../images/dircab-button.gif);
+	content:".";
+	font-size:0;
+  }
   $baseButtonFontSize: 20;
   font-size: em($baseButtonFontSize);
   background: $red;
@@ -435,6 +457,7 @@ button {
 	padding-left: 20px;
 	font-weight: 700;
 	font-size: em(20);
+	line-height: 1.3;
   }
 
   .image {
@@ -443,6 +466,7 @@ button {
 
 	img {
 	  max-width: 100%;
+	  max-height: 270px;
 	}
   }
 }
@@ -493,6 +517,17 @@ button {
 	  .question {
 		padding-right: 20px;
 	  }
+	  .entrance {
+		h1 {
+		  font-size: em(40);
+		  line-height: 1.2;
+		  color: $red;
+		}
+
+		p {
+		  font-size: em(20);
+		}
+	  }
 	}
   }
 
@@ -536,16 +571,13 @@ button {
 		font-size: em(14);
 	  }
 
-	  .entrance-right, .entrance-left {
-		padding: 0;
-	  }
-
-	  .entrance-right {
-		font-size: em(16);
-	  }
-
-	  .entrance-left {
-		font-size: em(36);
+	  .entrance {
+		h1 {
+		  font-size: em(30);
+		}
+		p {
+		  font-size: em(16);
+		}
 	  }
 	}
   }
@@ -593,8 +625,10 @@ button {
 		line-height: 1.2;
 	  }
 
-	  .entrance-left {
-		font-size: em(28);
+	  .entrance {
+		h1 {
+		  font-size: em(24);
+		}
 	  }
 	}
 
