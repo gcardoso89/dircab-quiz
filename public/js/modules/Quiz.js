@@ -59,13 +59,13 @@ class Quiz {
 	checkFinalResult() {
 		let positiveAnswers = this._results[ "1" ];
 
-		if ( positiveAnswers <= 6 ){
+		if ( positiveAnswers <= 4 ){
 			return "bambi";
-		} else if ( positiveAnswers > 6 && positiveAnswers <= 12 ) {
+		} else if ( positiveAnswers > 4 && positiveAnswers <= 8 ) {
 			return "charles-ingalls";
-		} else if ( positiveAnswers > 12 && positiveAnswers <= 18 ) {
+		} else if ( positiveAnswers > 8 && positiveAnswers <= 12 ) {
 			return "mac-gyver";
-		} else if ( positiveAnswers > 18 ) {
+		} else if ( positiveAnswers > 12 ) {
 			return "maitre-yoda";
 		}
 	}
