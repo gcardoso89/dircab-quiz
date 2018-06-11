@@ -7,25 +7,47 @@
 	<link rel="manifest" href="/manifest.json">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-	<meta name="description"
-				content="Pour nos 40 ans, Dircab t’offre le plus beau des cadeaux : mieux te connaître ! Découvre 20 situations qui te révèleront quel (lle) collaborateur/.trice de cabinet tu es ?"/>
-	<meta name="keywords" content="dircab, directeur de cabinet, test, quizz"/>
-	<meta name="author" content="4août"/>
-	<meta name="robots" content="index, follow"/>
+	{{#if winner}}
+		<meta name="description" content="{{winner.facebook}}"/>
+		<meta name="keywords" content="dircab, directeur de cabinet, test, quizz"/>
+		<meta name="author" content="4août"/>
+		<meta name="robots" content="index, follow"/>
 
-	<meta name="twitter:card" content="summary_large_image"/>
-	<meta name="twitter:site" content="@AssoDircab"/>
-	<meta name="twitter:creator" content="@AssoDircab"/>
-	<meta name="twitter:title" content="Quel collaborateur ou collaboratrice de cabinet es-tu ?"/>
-	<meta name="twitter:image" content="http://maviedecab.fr/images/social/dircab_quiz_share.gif"/>
-	<meta name="twitter:description" content="#2018 sera-t-elle l'année qui vous permettra de mieux vous connaître ? Faites le #test concocté par @4aout et découvrez quel type de client vous êtes, ou seriez dans le monde impitoyable des agences de communication ! #4aout http://moiclient.fr"/>
+		<meta name="twitter:card" content="summary_large_image"/>
+		<meta name="twitter:site" content="@AssoDircab"/>
+		<meta name="twitter:creator" content="@AssoDircab"/>
+		<meta name="twitter:title" content="Quel collaborateur ou collaboratrice de cabinet es-tu ?"/>
+		<meta name="twitter:description" content="{{winner.twitter}}"/>
+		<meta name="twitter:image" content="http://maviedecab.fr/images/social/dircab_quiz_share.gif"/>
 
-	<meta property="fb:app_id" content="371507613371389"/>
-	<meta property="og:url" content="http://maviedecab.fr"/>
-	<meta property="og:type" content="website"/>
-	<meta property="og:title" content="Quel collaborateur ou collaboratrice de cabinet es-tu ?"/>
-	<meta property="og:description" content="Pour ses 40 ans, Dircab t’offre le plus beau des cadeau: mieux te connaitre ! Découvre 20 situations qui te révèleront quel collaborateur ou collaboratrice de cabinet tu es. #40ans #Quizz"/>
-	<meta property="og:image" content="http://maviedecab.fr/images/social/dircab_quiz_share.gif"/>
+		<meta property="fb:app_id" content="371507613371389"/>
+		<meta property="og:url" content="http://maviedecab.fr/{{winner.key}}"/>
+		<meta property="og:type" content="website"/>
+		<meta property="og:title" content="Quel collaborateur ou collaboratrice de cabinet es-tu ?"/>
+		<meta property="og:description" content="{{winner.facebook}}"/>
+		<meta property="og:image" content="http://maviedecab.fr/images/social/dircab_quiz_share.gif"/>
+	{{else}}
+		<meta name="description"
+					content="Pour nos 40 ans, Dircab t’offre le plus beau des cadeaux : mieux te connaître ! Découvre 20 situations qui te révèleront quel (lle) collaborateur/.trice de cabinet tu es ?"/>
+		<meta name="keywords" content="dircab, directeur de cabinet, test, quizz"/>
+		<meta name="author" content="4août"/>
+		<meta name="robots" content="index, follow"/>
+
+		<meta name="twitter:card" content="summary_large_image"/>
+		<meta name="twitter:site" content="@AssoDircab"/>
+		<meta name="twitter:creator" content="@AssoDircab"/>
+		<meta name="twitter:title" content="Quel collaborateur ou collaboratrice de cabinet es-tu ?"/>
+		<meta name="twitter:image" content="http://maviedecab.fr/images/social/dircab_quiz_share.gif"/>
+		<meta name="twitter:description" content="#2018 sera-t-elle l'année qui vous permettra de mieux vous connaître ? Faites le #test concocté par @4aout et découvrez quel type de client vous êtes, ou seriez dans le monde impitoyable des agences de communication ! #4aout http://moiclient.fr"/>
+
+		<meta property="fb:app_id" content="371507613371389"/>
+		<meta property="og:url" content="http://maviedecab.fr"/>
+		<meta property="og:type" content="website"/>
+		<meta property="og:title" content="Quel collaborateur ou collaboratrice de cabinet es-tu ?"/>
+		<meta property="og:description" content="Pour ses 40 ans, Dircab t’offre le plus beau des cadeau: mieux te connaitre ! Découvre 20 situations qui te révèleront quel collaborateur ou collaboratrice de cabinet tu es. #40ans #Quizz"/>
+		<meta property="og:image" content="http://maviedecab.fr/images/social/dircab_quiz_share.gif"/>
+	{{/if}}
+
 </head>
 <body class="{{#if winner}}final{{/if}}">
 <img src="images/social/dircab_quiz_share.gif" rel="preload" style="visibility: hidden;position: absolute;left: 0;top: 0;z-index: 0;">

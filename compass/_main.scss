@@ -20,17 +20,6 @@ body {
   @include transition(background-color $animation-time ease-out);
   height: 100vh;
   &.final {
-	header {
-	  .logo {
-		background-color: #000;
-	  }
-	  a {
-		&:hover {
-		  background-color: #000;
-		}
-	  }
-	}
-
 	main {
 	  opacity: 0;
 	}
@@ -65,43 +54,44 @@ header {
 	position: absolute;
 	right: 40px;
 	top: 30px;
+  }
+}
 
-
-	a {
-	  &.sharing-facebook {
-		background: $blue;
-		border-color: $blue;
-		color: white;
-		&:hover {
-		  background: white;
-		  color: $blue;
-		}
+.social {
+  a {
+	&.sharing-facebook {
+	  background: $blue;
+	  border-color: $blue;
+	  color: white;
+	  &:hover {
+		background: white;
+		color: $blue;
 	  }
-
-	  &.sharing-twitter {
-		background: $red;
-		border-color: $red;
-		color: white;
-		&:hover {
-		  background: white;
-		  color: $red;
-		}
-	  }
-	  display: block;
-	  width: 30px;
-	  height: 30px;
-	  border:3px solid;
-	  border-radius: 30px;
-	  float: left;
-	  margin-left: 20px;
-	  svg {
-		fill: currentColor;
-		g {
-		  fill: currentColor;
-		}
-	  }
-
 	}
+
+	&.sharing-twitter {
+	  background: $red;
+	  border-color: $red;
+	  color: white;
+	  &:hover {
+		background: white;
+		color: $red;
+	  }
+	}
+	display: block;
+	width: 30px;
+	height: 30px;
+	border:3px solid;
+	border-radius: 30px;
+	float: left;
+	margin-left: 20px;
+	svg {
+	  fill: currentColor;
+	  g {
+		fill: currentColor;
+	  }
+	}
+
   }
 }
 
@@ -458,6 +448,10 @@ button {
 	font-weight: 700;
 	font-size: em(20);
 	line-height: 1.3;
+  }
+
+  .social {
+	margin-top: 20px;
   }
 
   .image {
