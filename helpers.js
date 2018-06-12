@@ -2,7 +2,8 @@ let register = function(Handlebars) {
 	let helpers = {
 		// put all of your helpers inside this object
 		navNumber: function(number){
-			return parseInt(number, 10) < 10 ? '0' + number : number;
+			number = parseInt(number, 10) + 1;
+			return number < 10 ? '0' + number : number;
 		},
 		// put all of your helpers inside this object
 		equal: function(arg1, arg2, options){
