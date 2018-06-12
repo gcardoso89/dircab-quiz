@@ -63,14 +63,14 @@
 	<nav id="nav">
 		<ul>
 			{{#each questions as |question questionIndex|}}
-				<li>{{navNumber question.order}}</li>
+				<li>{{navNumber questionIndex}}</li>
 			{{/each}}
 		</ul>
 	</nav>
 	<main {{#if winner}}style="-ms-transform: translate3d(0,-1400vh,0); -moz-transform: translate3d(0,-1400vh,0); -webkit-transform: translate3d(0,-1400vh,0); transform: translate3d(0,-1400vh,0);"{{/if}}>
 		<section>
 			<div class="entrance">
-				<h1>Quel (le) collaborateur/. trice de cabinet es-tu ?</h1>
+				<h1 class="big-title">Quel (le) collaborateur/. trice de cabinet es-tu ?</h1>
 				<h1>Pour nos 40 ans,</h1>
 				<p>
 					DirCab t’offre le plus beau des cadeaux : mieux te connaître !<br>
@@ -85,7 +85,7 @@
 			{{#each questions as |question questionIndex|}}
 				<section>
 					<div class="number">
-						<span>{{navNumber question.order}}</span>
+						<span>{{navNumber questionIndex}}</span>
 						<svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
