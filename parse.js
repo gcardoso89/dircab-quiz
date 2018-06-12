@@ -18,7 +18,7 @@ xlsxj({
 				questions.push(
 					{
 						order: parseInt(entry['Question\norder'], 10),
-						question: entry['Question'].replace('“', '“<em>').replace('”', '</em>”').replace('«', '«<em>').replace('</em>»')
+						question: entry['Question']
 					}
 				)
 			}
@@ -26,8 +26,6 @@ xlsxj({
 		questions.sort(function (a, b) {
 			return a.order - b.order;
 		});
-
-		questions = shuffle(questions);
 
 		questions = questions.map( (question, index) => {
 			question.order = index+1;

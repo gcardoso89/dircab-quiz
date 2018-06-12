@@ -3,10 +3,11 @@ let router = express.Router();
 let questions = require('../questions');
 let finals = require('../finals');
 let availableProfiles = ['bambi', 'charles-ingalls', 'mac-gyver', 'maitre-yoda'];
+let shuffle = require('shuffle-array');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-	res.render('index', {layout: null, questions: questions, finals: finals });
+	res.render('index', {layout: null, questions: shuffle(questions), finals: finals });
 });
 
 router.get('/:winner', function (req, res, next) {
