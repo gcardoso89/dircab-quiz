@@ -16,7 +16,7 @@ module.exports = {
 	"mac-gyver": {
 		title: "MAC GYVER",
 		subtitle: "l’astucieux, le malin",
-		description: "Gyver des cabinets. Ton arme à toi, ce n’est pas le couteau suisse mais une maxime bien française : « Même dans la bouse, le coq chante toujours ». Si tu as surmonté ces situations, aucune inquiétude pour ton avenir.",
+		description: "Les situations inextricables te sont familières et cette expérience fait de toi un.e véritable Mac Gyver des cabinets. Ton arme à toi, ce n’est pas le couteau suisse mais une maxime bien française : « Même dans la bouse, le coq chante toujours ». Si tu as surmonté ces situations, aucune inquiétude pour ton avenir.",
 		facebook: "Mac Gyver, L’astucieux, le malin. DirCab t’offre le plus beau des cadeaux : mieux te connaître ! Découvre 15 situations qui te révéleront quel(le) collaborateur.trice de cabinet tu es. #MaVieDeCab",
 		twitter: "Mac Gyver, L’astucieux, le malin. @AssoDircab t’offre le plus beau des cadeaux : mieux te connaître ! Découvre 15 situations qui te révéleront quel(le) collaborateur.trice de cabinet tu es. #40ans #Quizz #MaVieDeCab"
 	},
