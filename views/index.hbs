@@ -356,7 +356,7 @@
 {{else}}
 	{{#each finals as |final|}}
 		<div class="final-container" id="final-{{@key}}">
-			{{> character final=final url=@key}}
+			{{> character final=final finals=finals url=@key}}
 		</div>
 	{{/each}}
 {{/if}}

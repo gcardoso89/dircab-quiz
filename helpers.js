@@ -8,6 +8,13 @@ let register = function(Handlebars) {
 		// put all of your helpers inside this object
 		equal: function(arg1, arg2, options){
 			return arg1 === arg2 ? options.fn(this) : undefined;
+		},
+		isNotCurrentProfile(arg1, arg2) {
+			console.log(arg1, arg2);
+			return arg1 !== arg2
+		},
+		toLowerCase(text) {
+			return text.toLowerCase();
 		}
 	};
 

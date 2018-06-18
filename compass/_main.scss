@@ -81,7 +81,7 @@ header {
 	display: block;
 	width: 30px;
 	height: 30px;
-	border:3px solid;
+	border: 3px solid;
 	border-radius: 30px;
 	float: left;
 	margin-left: 20px;
@@ -285,7 +285,7 @@ main {
 		font-size: em(24);
 		font-weight: $font-weight-reg;
 		line-height: 1.7;
-		margin:0 0 em(50, 24);
+		margin: 0 0 em(50, 24);
 		color: $blue;
 	  }
 	}
@@ -326,13 +326,13 @@ button {
 	position: absolute;
 	left: 50%;
 	top: 50%;
-	@include transform(translate(-50%,-50%) scale(0.6));
+	@include transform(translate(-50%, -50%) scale(0.6));
 	z-index: -1;
 	width: 300px;
 	height: 300px;
 	background: url(../images/dircab-button.gif);
-	content:".";
-	font-size:0;
+	content: ".";
+	font-size: 0;
   }
   $baseButtonFontSize: 20;
   font-size: em($baseButtonFontSize);
@@ -372,7 +372,7 @@ button {
   flex-direction: column;
   margin: 0 auto;
   height: 100vh;
-  padding: 0 20px;
+  padding: 80px 20px 20px;
   @include transition(transform $animation-time 0.5s ease-out);
   @include transform(translate3d(0, 100vh, 0));
 
@@ -402,7 +402,7 @@ button {
 	  position: absolute;
 	  left: 50%;
 	  top: 50%;
-	  transform: translate3d(-50%,-50%,0);
+	  transform: translate3d(-50%, -50%, 0);
 	  background: url(../images/question.svg);
 	  z-index: -2;
 	  font-size: 0;
@@ -427,7 +427,7 @@ button {
 	  background: white;
 	  left: 50%;
 	  top: 50%;
-	  transform: translate3d(-50%,-50%,0);
+	  transform: translate3d(-50%, -50%, 0);
 	  display: block;
 	  font-size: 0;
 	  z-index: -1;
@@ -455,6 +455,14 @@ button {
 
   .social {
 	margin-top: 20px;
+	margin-bottom: 20px;
+	display: flex;
+	a {
+	  float: none;
+	  &:first-child {
+		margin-left: 0;
+	  }
+	}
   }
 
   .image {
@@ -464,6 +472,22 @@ button {
 	img {
 	  max-width: 100%;
 	  max-height: 270px;
+	}
+  }
+
+  .others {
+	a {
+	  color: $red;
+	  font-weight: 700;
+	  display: block;
+	  margin-bottom: 5px;
+	  font-size: 0.8125em;
+	  &:hover {
+		text-decoration: underline;
+	  }
+	  em {
+		text-transform: capitalize;
+	  }
 	}
   }
 }
@@ -505,6 +529,9 @@ button {
 		padding-bottom: 10px;
 		padding-right: 0;
 		text-align: center;
+	  }
+	  .social {
+		justify-content: center;
 	  }
 	}
   }
@@ -594,8 +621,8 @@ button {
   }
 
   .final-container {
-	padding: 0;
-	overflow: hidden;
+	padding: 80px 0 20px;
+	overflow: auto;
 
 	h2 {
 	  span {
@@ -609,7 +636,7 @@ button {
 	  }
 	}
 	.description {
-	  font-size:em(16);
+	  font-size: em(16);
 	}
   }
 
